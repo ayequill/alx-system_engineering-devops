@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 # Extracts text with awk
+# ip=$(awk '{print $1}' "apache-access.log")
+# statuscode=$(awk '{print $9}' "apache-access.log")
 
-while IFS= read -r log; do
-	ip=$(echo "$log" | awk '{print $1}')
-	statuscode=$(echo "$log" | awk '{print $9}')
+awk '{print $1, $9}' "apache-access.log"
 
-	echo "$ip $statuscode"
-done < apache-access.log
+

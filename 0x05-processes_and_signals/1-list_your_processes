@@ -2,4 +2,4 @@
 
 # Displays list of currently runnins Processes
 
-ps axu
+ps faux

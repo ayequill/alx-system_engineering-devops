@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Displays list of currently runnins Processes
 
 ps faux

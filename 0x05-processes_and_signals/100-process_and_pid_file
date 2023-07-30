@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 # Process a file
-
-echo $$ > /var/run/myscript.pid
+PID_FILE="/var/run/myscript.pid"
+echo $$ > "$PID_FILE"
 
 delete_file() {
-	rm /var/run/myscript.pid
+	rm "$PID_FILE"
 	exit
 }
 
-trap 'delete_file' SIGTERM SIGQUIT
+trap 'delete_file' SIGQUIT
 
-trap "echo 'I hate the kill command'" SIGTERM
+trap "echo 'I hate the kill command' && delete_file" SIGTERM
 trap "echo 'Y U no love me?!'" SIGINT
 
 while true; do

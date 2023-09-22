@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+pass="betty"
+file="school"
+bit="4096"
+
+ssh-keygen -t rsa -b "$bit" -f "$file" -N "$pass"

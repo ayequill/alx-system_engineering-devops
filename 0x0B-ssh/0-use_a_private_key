@@ -4,4 +4,4 @@ identity_file="~/.ssh/school"
 host=18.207.233.37
 user="ubuntu"
 
-ssh -i "$identity_file" $"$user"@"$host"
+ssh -i "$identity_file" "$user"@"$host"

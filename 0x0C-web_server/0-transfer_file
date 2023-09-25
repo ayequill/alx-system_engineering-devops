@@ -11,6 +11,6 @@ else
 	key="$4"
 	host="$2"
 
-	scp -i "$key" "$src_file" "$user@$host":~/
+	scp -o StrictHostKeyChecking=no -i "$key" "$src_file" "$user@$host":~/
 fi
 

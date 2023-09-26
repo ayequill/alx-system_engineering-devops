@@ -7,9 +7,9 @@ sudo service nginx start
 sudo chown -R "$USER":"$USER" /var/www/html
 echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
-if dpkg -l | grep -q nginx; then
-	sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
-	sudo bash -c 'cat <<EOF> /etc/nginx/sites-enabled/default
+
+sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
+sudo bash -c 'cat <<EOF> /etc/nginx/sites-enabled/default
 	server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
@@ -32,4 +32,3 @@ if dpkg -l | grep -q nginx; then
 }
 EOF'
 sudo service nginx reload
-fi

@@ -30,6 +30,6 @@ if dpkg -l | grep -q nginx; then
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
 	}
 }
-EOFi'
+EOF'
 sudo service nginx reload
 fi

@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 # Modifies the server block and configures a permanently redirect
+sudo service nginx reload
+sudo apt update -y
+sudo apt install nginx -y
+sudo service nginx start
+sudo chown -R "$USER":"$USER" /var/www/html
+echo "Hello World!" > /var/www/html/index.nginx-debian.html
 
 if dpkg -l | grep -q nginx; then
 	sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
@@ -25,11 +31,4 @@ if dpkg -l | grep -q nginx; then
 	}
 }
 EOF'
-	sudo service nginx reload
-else
-	sudo apt update -y
-	sudo apt install nginx -y
-	sudo service nginx start
-	sudo chown -R "$USER":"$USER" /var/www/html
-	echo "Hello World!" > /var/www/html/index.nginx-debian.html
 fi

@@ -61,7 +61,7 @@ file { 'default':
 
 # Start nginx
 service { 'nginx':
-  ensure    => 'running',
-  enable    => true,
-  require   => File['default'],
+  ensure  => 'running',
+  enable  => true,
+  require => File['default'],
 }

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Modifies the server block and configures a permanently redirect
-sudo service nginx reload
 sudo apt update -y
 sudo apt install nginx -y
 sudo service nginx start

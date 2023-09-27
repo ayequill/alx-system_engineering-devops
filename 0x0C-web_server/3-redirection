@@ -30,4 +30,4 @@ sudo bash -c 'cat <<EOF> /etc/nginx/sites-enabled/default
 	}
 }
 EOF'
-sudo service nginx reload
+sudo service nginx restart

@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+# Sets up and configures HAProxy on a ubuntu system
+
+sudo apt-get update -y
+sudo apt-get install haproxy -y
+sudo bash -c 'cat <<EOF> /etc/haproxy/haproxy.cfg
+global
+    log /dev/log local0
+    log /dev/log local1 notice
+    user haproxy
+    group haproxy
+    maxconn 4096
+    daemon
+
+defaults
+    log global
+    mode http
+    option httplog
+    option dontlognull
+    option forwardfor
+    option http-server-close
+    stats enable
+    stats auth admin:your_password_here
+    stats uri /haproxy_stats
+    timeout connect 5000
+    timeout client 50000
+    timeout server 50000
+
+frontend http
+    bind *:80
+    default_backend feed_http
+
+backend feed_http
+    balance roundrobin
+    server 309746-web-01 18.207.233.37:80 check
+    server 309746-web-02 100.26.220.118:80 check
+EOF'
+
+sudo systemctl enable haproxy
+
+sudo service haproxy restart

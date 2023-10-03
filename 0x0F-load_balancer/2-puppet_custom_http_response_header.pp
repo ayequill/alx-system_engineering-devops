@@ -9,6 +9,13 @@ package { 'nginx':
 #   require => Package['nginx'],
 # }
 
+file { 'index.html':
+    ensure  => 'file',
+    path    => '/var/www/html/index.html',
+    content => 'Hello World!',
+    require => Package['nginx'],
+}
+
 file { 'default':
   ensure  => 'file',
   path    => '/etc/nginx/sites-available/default',

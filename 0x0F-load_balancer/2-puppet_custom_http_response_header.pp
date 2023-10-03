@@ -11,7 +11,7 @@ package { 'nginx':
 
 file { 'default':
   ensure  => 'file',
-  path    => '/etc/nginx/sites-enabled/default',
+  path    => '/etc/nginx/sites-available/default',
   content => "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;

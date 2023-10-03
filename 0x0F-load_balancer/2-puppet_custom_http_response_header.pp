@@ -24,13 +24,17 @@ file { 'default':
 	
 	add_header X-Served-By \$hostname;
 
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
 		try_files \$uri \$uri/ =404;
 	}
 }",
-
+	require => Package['nginx'],
   notify  => Service['nginx'],
 }
 

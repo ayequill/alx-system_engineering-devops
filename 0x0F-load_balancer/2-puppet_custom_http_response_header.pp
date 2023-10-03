@@ -44,5 +44,5 @@ file { 'default':
 service { 'nginx':
   ensure  => 'running',
   enable  => true,
-  require => File['default'],
+# require => File['default'],
 }

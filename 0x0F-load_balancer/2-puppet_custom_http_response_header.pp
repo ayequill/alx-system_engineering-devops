@@ -6,11 +6,7 @@ exec {'update_system':
 
 package { 'nginx':
   ensure   => 'installed',
-<<<<<<< HEAD
 	require => Exec['update_system']
-=======
-  requires => Exec['update_system'],
->>>>>>> d737df2cf3aa5354bcbbc5ad771ec8b1f511b8e5
 }
 
 file { 'index.html':

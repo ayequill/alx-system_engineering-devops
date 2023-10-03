@@ -1,6 +1,12 @@
 # Install Nginx
+
+exec {'update_system':
+  command => '/usr/bin/apt-get -y update',
+}
+
 package { 'nginx':
-  ensure => 'installed',
+  ensure   => 'installed',
+	requires => Exec['update_system'],
 }
 
 

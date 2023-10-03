@@ -19,9 +19,6 @@ defaults
     option dontlognull
     option forwardfor
     option http-server-close
-    stats enable
-    stats auth admin:your_password_here
-    stats uri /haproxy_stats
     timeout connect 5000
     timeout client 50000
     timeout server 50000

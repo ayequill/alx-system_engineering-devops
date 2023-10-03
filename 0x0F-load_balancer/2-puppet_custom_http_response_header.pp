@@ -3,11 +3,6 @@ package { 'nginx':
   ensure => 'installed',
 }
 
-# exec { 'change_ownership':
-#   command => 'sudo chown -R siaw:siaw /var/www/html',
-#   path    => '/usr/bin',
-#   require => Package['nginx'],
-# }
 
 file { 'index.html':
     ensure  => 'file',
@@ -29,7 +24,7 @@ file { 'default':
 
 	server_name _;
 	
-	add_header X-Served-By \$hostname;
+	add_header X-Served-By \\$hostname;
 
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;

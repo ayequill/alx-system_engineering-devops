@@ -24,7 +24,7 @@ file { 'default':
 
 	server_name _;
 	
-	add_header X-Served-By \\$hostname;
+	add_header X-Served-By \$hostname;
 
 	location /redirect_me {
 		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
@@ -36,7 +36,7 @@ file { 'default':
 		try_files \$uri \$uri/ =404;
 	}
 }",
-	require => Package['nginx'],
+  require => Package['nginx'],
   notify  => Service['nginx'],
 }
 

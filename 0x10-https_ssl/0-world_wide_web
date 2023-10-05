@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Bash script that uses awk and dig
+
+print_info(){
+	line=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | grep "$1")
+	echo "$2 $line" | awk '{print "The subdomain " $1 " is a " $5 " record and points to " $6 }'
+}
+
+
+if [ "$#" == 1 ]; then
+	print_info "$1" "www"
+	print_info "$1" "lb-01"
+	print_info "$1" "web-01"
+	print_info "$1" "web-02"
+elif [ "$#" == 2 ]; then
+	print_info "$1" "$2"
+fi

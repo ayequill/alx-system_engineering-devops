@@ -1,0 +1,3 @@
+# What happens when...
+
+My attempt to answer this old age question.

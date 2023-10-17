@@ -2,7 +2,7 @@
 # Creates a backup of all databases
 
 stamp=$(date +'%d-%m-%Y')
-file_name="$stamp.tar.sql"
+file_name="$stamp.tar.gz"
 mysqldump -uroot -p"$1" --all-databases > backup.sql
 
-tar czvf "$file_name.gz" backup.sql
+tar czvf "$file_name" backup.sql

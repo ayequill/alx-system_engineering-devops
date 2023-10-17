@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Bash scripts that displays the username passed
+sudo -u "$1" whoami

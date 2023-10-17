@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Creates a backup of all databases
+
+stamp=$(date +'%d-%m-%Y')
+file_name="$stamp.tar.sql"
+mysqldump -uroot -p"$1" --all-databases > backup.sql
+
+tar czvf "$file_name.gz" backup.sql

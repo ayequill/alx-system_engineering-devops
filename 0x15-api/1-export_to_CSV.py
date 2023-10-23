@@ -10,7 +10,7 @@ if __name__ == "__main__":
     def get_user(id):
         """ Gets th username """
         res = get(f'https://jsonplaceholder.typicode.com/users/{id}')
-        return res.json().get('name')
+        return res.json().get('username')
 
     def get_todo(id):
         """ Returns data from todo response """

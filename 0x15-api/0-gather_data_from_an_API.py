@@ -3,7 +3,6 @@
 from requests import get
 from sys import argv
 
-
 if __name__ == "__main__":
     user_id = int(argv[1])
 
@@ -24,8 +23,12 @@ if __name__ == "__main__":
             'completed': completed,
             'len_all': len(user_todos)
         }
-    print(f"Employee {get_user(user_id)} is done with \
-    ({get_todo(user_id).get('len_comp')}/{get_todo(user_id).get('len_all')}):")
+
+    print("Employee {user} is done with tasks ({len_comp}/{len_all}):".format(
+        user=get_user(user_id),
+        len_comp=get_todo(user_id).get('len_comp'),
+        len_all=get_todo(user_id).get('len_all')
+    ))
 
     for todo in get_todo(user_id).get('completed'):
         print(f"\t {todo['title']}")

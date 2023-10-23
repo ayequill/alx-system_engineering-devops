@@ -26,7 +26,7 @@ if __name__ == "__main__":
         ], user_todos))
 
     try:
-        with open('2.csv', 'w', newline='') as file:
+        with open(f'{user_id}.csv', 'w', newline='') as file:
             csv_file = writer(file, quoting=QUOTE_ALL)
             csv_file.writerows(get_todo(user_id))
     except Exception:

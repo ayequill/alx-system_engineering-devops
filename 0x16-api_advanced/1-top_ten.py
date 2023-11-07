@@ -5,7 +5,7 @@ from requests import get
 
 def top_ten(subreddit):
     """ Queries top 10 posts in a subreddit """
-    url = "https://www.reddit.com/r/{}/top.json?limit=10".format(subreddit)
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
     res = get(url, headers={'User-Agent': 'Mozilla/5.0'})
     data = res.json()
     if res.ok:
